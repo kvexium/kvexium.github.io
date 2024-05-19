@@ -1,2 +1,2 @@
 # xocrium-docs
-The Documentation about the programming language Xocrium and all that comes with it.
+The Documentation about the programming language Kvevcium and all that comes with it.
