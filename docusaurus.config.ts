@@ -3,22 +3,22 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Kvexium',
+  tagline: '**dec start: str = "now";',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/kvex-docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'kvexium', // Usually your GitHub org/user name.
-  projectName: 'kvex-docs', // Usually your repo name.
+  projectName: 'kvexium.github.io', // Usually your repo name.
 
-  deploymentBranch: 'gh-pages',
+  deploymentBranch: 'gh-pages', // For Github Pages: gh-pages
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -28,7 +28,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'de'],
   },
 
   presets: [
@@ -68,9 +68,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Kvexium',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Kvexium Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -131,13 +131,20 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Kvexium UG. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['kvexium'], // Füge deine benutzerdefinierte Sprache hinzu
     },
   } satisfies Preset.ThemeConfig,
+  /* scripts: [
+    {
+      src: 'prism-kvexium.js', // actually: 'static/kvexium.js'
+      async: true,
+    },
+  ],*/
 };
 
 export default config;
