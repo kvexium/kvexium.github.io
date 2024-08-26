@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Kvexium',
   tagline: '**dec start: str = "now";',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/kvexium_file.svg',
 
   // Set the production url of your site here
   url: 'https://github.com',
@@ -20,7 +20,7 @@ const config: Config = {
 
   deploymentBranch: 'gh-pages', // For Github Pages: gh-pages
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -71,18 +71,17 @@ const config: Config = {
       title: 'Kvexium',
       logo: {
         alt: 'Kvexium Logo',
-        src: 'img/logo.svg',
+        src: 'img/kvexium.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          to: '/docs/installation', position: 'left', label: 'Docs'
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        /* {
+          to: '/docs/', position: 'left', label: 'Docs'
+        }, */
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/kvexium',
           label: 'GitHub',
           position: 'right',
         },
@@ -95,8 +94,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Installation',
+              to: '/docs/install',
             },
           ],
         },
@@ -126,7 +125,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/kvexium',
             },
           ],
         },
@@ -139,12 +138,6 @@ const config: Config = {
       additionalLanguages: ['kvexium'], // Füge deine benutzerdefinierte Sprache hinzu
     },
   } satisfies Preset.ThemeConfig,
-  /* scripts: [
-    {
-      src: 'prism-kvexium.js', // actually: 'static/kvexium.js'
-      async: true,
-    },
-  ],*/
 };
 
 export default config;

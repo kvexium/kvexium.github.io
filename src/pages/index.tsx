@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Kickstart Your Kvexium Journey - Just 5 Minutes!
           </Link>
         </div>
       </div>
