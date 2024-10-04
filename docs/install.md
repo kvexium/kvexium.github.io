@@ -23,14 +23,15 @@ Generate a new Docusaurus site using the **classic template**.
 
 The classic template will automatically be added to your project after you run the command:
 
-```kvexium title="src/kvex/example.kvex"
+```kvexium title="src/kvex/Main.kvex"
+uses kvex.Math;
+
 **dec start: i8 = 15;
 *dec;
 &dec;
-^dec;
 dec;
 
-#Main {
+*class Main {
 	@NodeName
 	
 	dec x: i8;
@@ -60,15 +61,15 @@ dec;
 		t++;
 	}
 
-	dec z: ntype = (x == 3) ? (x + 1) : (x - 1);
+	dec z: ntype = (x == 3) ? (x + 1) : (x - 1);                       // checks once which condiction is true and sets the variable to it
 
 	dec getValueAt(arr: [], i: ntype) -> i16 {
 		arr[i].value                                                   // return the value of the element at index 'i' of the given array 'arr'
 	};
 
-	dec getValueError(arr: [], i: ntype) -> i16 ?> Error {
+	**dec i16 getValueError(arr: [], i: ntype) ?> Error {
 		arr[i].value                                                   // return the value of the element at index 'i' of the given array 'arr'
-	} : {
+	} ?: {
 		new Error("Cannot find value at index {i}!", Error.Critical);  // or throw an error
 	};
 
@@ -81,11 +82,15 @@ dec;
 		(?? >= 5) => {
 			print("bigger or equal to 5");
 		},
-		_ => {
+		_ => {                                                         // _ is the default type
 			print("value is not a number");
 		}
 	}
 }
+
+0x1f8E
+45.3f
+45.4F
 ```
 
 You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
@@ -106,3 +111,13 @@ The `cd` command changes the directory you're working with. In order to work wit
 The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
 
 Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+  Use plugins to introduce shorter syntax for the most commonly used JSX
+  elements in your project.
+
+:::linux Linux Hinweis
+Dies ist eine benutzerdefinierte Linux-Admonition.
+:::
+
+:::windows Windows Hinweis
+Dies ist eine benutzerdefinierte Windows-Admonition.
+:::
