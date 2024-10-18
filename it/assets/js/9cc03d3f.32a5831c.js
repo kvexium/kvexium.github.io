@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkvex_docs=self.webpackChunkkvex_docs||[]).push([[1760],{2895:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/it/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
