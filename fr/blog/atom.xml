@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/fr/blog"/>
     <subtitle>Kvexium Blog</subtitle>
-    <icon>https://github.com/fr/img/kvexium_file.svg</icon>
+    <icon>https://github.com/fr/img/kvexium_file-new.svg</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://github.com/fr/blog/welcome</id>
