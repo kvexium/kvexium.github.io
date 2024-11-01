@@ -14,13 +14,13 @@
   {
     "name": "kuhlklay/Graphics",
     "title": "Graphics",
-    "tags": ["graphics", "visual"],
+    "tags": ["graphics", "visual", "system", "frame"],
     "logo": "logo.png"
   },
   {
     "name": "Kvexium/Complex",
     "title": "Complex Numbers",
-    "tags": ["math", "extended", "complex", "math", "extended", "complex", "math", "extended", "complex", "math", "extended", "complex", "math", "extended", "complex"],
+    "tags": ["math", "extended", "complex"],
     "logo": "logo.png"
   }
 ]
