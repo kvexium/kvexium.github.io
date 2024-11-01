@@ -1,69 +1,442 @@
-/**
+/*
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #2e8555;
+    --ifm-color-primary-dark: #29784c;
+    --ifm-color-primary-darker: #277148;
+    --ifm-color-primary-darkest: #205d3b;
+    --ifm-color-primary-light: #33925d;
+    --ifm-color-primary-lighter: #359962;
+    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-content: var(--ifm-color-emphasis-700);
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+[data-theme="dark"] {
+    --ifm-color-content: var(--ifm-color-emphasis-700);
+    --ifm-color-primary: #25c2a0;
+    --ifm-color-primary-dark: #21af90;
+    --ifm-color-primary-darker: #1fa588;
+    --ifm-color-primary-darkest: #1a8870;
+    --ifm-color-primary-light: #29d5b0;
+    --ifm-color-primary-lighter: #32d8b4;
+    --ifm-color-primary-lightest: #4fddbf;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-h1.hero__title, b.navbar__title {
-  font-variant: small-caps;
+h1.hero__title,
+b.navbar__title {
+    font-variant: small-caps;
+    font-family: "Oxanium", sans-serif;
 }
 
-/* Stil für die neue "linux"-Admonition */
-.admonition.linux {
-  border-left: 4px solid #4caf50;  /* Custom Farbe für Linux */
-  background-color: #f0f4c3;      /* Hintergrundfarbe für Linux */
+/* Cursors */
+[data-theme="light"] body {
+    cursor: url("../../static/cursor/light/pointer.png"), default;
 }
 
-/* Stil für den Titel der Admonition */
-.admonition.linux .admonition-title {
-  color: #2e7d32;  /* Titel-Farbe für Linux */
+[data-theme="light"] a,
+[data-theme="light"] link,
+[data-theme="light"] button {
+    cursor: url("../../static/cursor/light/link.png"), pointer;
 }
 
-/* Icon für die neue Admonition */
-.admonition.linux .admonition-icon::before {
-  content: url('../../static/img/kvexium_file.svg');  /* Pfad zum neuen Icon */
-  display: inline-block;
-  width: 20px;  /* Icon-Größe */
-  height: 20px;
+[data-theme="dark"] body {
+    cursor: url("../../static/cursor/dark/pointer.png"), default;
 }
 
-.admonition.windows {
-  border-left: 4px solid #0078d7;
-  background-color: #d0e7ff;
+[data-theme="dark"] a,
+[data-theme="dark"] button,
+[data-theme="dark"] link {
+    cursor: url("../../static/cursor/dark/link.png"), pointer;
 }
 
-.admonition.windows .admonition-title {
-  color: #005a9e;
+svg.iconExternalLink_node_modules-\@docusaurus-theme-classic-lib-theme-Icon-ExternalLink-styles-module {
+    display: none;
 }
 
-.admonition.windows .admonition-icon::before {
-  content: url('../../static/img/kvexium_file.svg');
+code,
+span.token.plain,
+span.token.comment {
+    border: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 95%;
+    padding-bottom: 1.6px;
 }
 
-/* MacOS-Icon: https://www.flaticon.com/free-icon/apple_15785061?term=mac+logo&page=1&position=12&origin=search&related_id=15785061 */
+code {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* Body oder Container, der das Hintergrundbild enthält */
+/* body {
+    margin: 0;
+    padding: 0;
+    background: none;
+    overflow: visible;
+} */
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://img.freepik.com/premium-vector/abstract-geometric-shapes-fluid-gradient-elements-background_1142-9937.jpg")
+        center/cover no-repeat;
+    background-size:
+        cover,
+        30px 30px;
+    filter: blur(20px) brightness(90%); /* Blur-Effekt */
+    z-index: -1;
+    background-attachment: fixed; /* Fixiertes Bild beim Scrollen */
+}
+
+/* Pseudo-Element für den geblurrten Hintergrund */
+[data-theme="dark"] body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://img.freepik.com/premium-vector/abstract-geometric-shapes-fluid-gradient-elements-background_1142-9937.jpg")
+        center/cover no-repeat;
+    background-size:
+        cover,
+        30px 30px;
+    filter: blur(20px) brightness(50%) grayscale(30%); /* Blur-Effekt */
+    z-index: -1;
+    background-attachment: fixed; /* Fixiertes Bild beim Scrollen */
+}
+
+/* Container mit leichtem Glassmorphism-Effekt für Light Mode */
+div.container {
+    background: rgba(255, 255, 255, 0.42); /* Hellerer Hintergrund */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* Spezifische Seiten oder Komponenten */
+.footer,
+.navbar {
+    backdrop-filter: blur(10px);
+}
+
+.footer {
+    background: rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: -4px 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 4px 0 30px rgba(255, 255, 255, 0.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+div.container.padding-top--md.padding-bottom--lg {
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    max-width: var(--ifm-container-width-xl);
+    width: calc(100% - 20px);
+}
+
+ul.table-of-contents.table-of-contents__left-border {
+    border-left: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+div.container.container-fluid {
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+section.features_src-components-HomepageFeatures-styles-module div.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: var(--ifm-container-width-xl);
+    width: calc(100% - 20px);
+    color: white;
+}
+
+header.hero {
+    background-color: transparent;
+}
+
+header.hero div.container {
+    background-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+ul.dropdown__menu {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+h1.hero__title, p.hero__subtitle {
+    color: white;
+}
+
+@media (min-width: 500px) {
+    h1.hero__title {
+        margin-top: 60px;
+        margin-bottom: 0;
+        font-size: 500%;
+    }
+
+    p.hero__subtitle {
+        margin-bottom: 7vh;
+        letter-spacing: 6px;
+    }
+
+    h1.hero__title::before {
+        content: ":";
+        height: 100%;
+        width: 100%;
+        margin-right: 20px;
+    }
+    h1.hero__title::after {
+        content: ":";
+        height: 100%;
+        width: 100%;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    h1.hero__title {
+        margin-top: 60px;
+        margin-bottom: 0;
+    }
+
+    p.hero__subtitle {
+        font-size: 110%;
+        margin-bottom: 7vh;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 500px) {
+    a.button.button--secondary.button--lg {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+a.button.button--secondary.button--lg {
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+b.navbar__title.text--truncate {
+    font-size: 120%;
+}
+
+.header-github-link:hover {
+    opacity: 0.6;
+}
+
+.header-github-link:before {
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000000' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+        no-repeat;
+    content: "";
+    display: flex;
+    height: 24px;
+    width: 24px;
+}
+
+nav.menu {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    /* Container mit leichtem Glassmorphism-Effekt */
+    div.container {
+        background: rgba(255, 255, 255, 0.03); /* Transparenter Hintergrund */
+        backdrop-filter: blur(15px);
+        /* border-radius: 20px; */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 10px;
+        padding: 20px;
+        z-index: 1;
+        /* position: relative; */
+    }
+
+    /* Spezifische Seiten oder Komponenten */
+    .footer,
+    .navbar {
+        backdrop-filter: blur(10px);
+    }
+
+    .footer {
+        background: rgba(0, 0, 0, 0.2);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar {
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    div.container.padding-top--md.padding-bottom--lg {
+        border: none;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 25px;
+        max-width: var(--ifm-container-width-xl); /* Maximale Breite */
+        width: calc(100% - 20px);
+    }
+
+    ul.table-of-contents.table-of-contents__left-border {
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+    }
+
+    div.container.container-fluid {
+        background-color: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    section.features_src-components-HomepageFeatures-styles-module div.container {
+        background-color: rgba(255, 255, 255, 0.02);
+        max-width: var(--ifm-container-width-xl); /* Maximale Breite */
+        width: calc(100% - 20px);
+    }
+
+    header.hero {
+        background-color: transparent;
+    }
+
+    header.hero div.container {
+        background-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    ul.dropdown__menu {
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 500px) {
+        h1.hero__title {
+            margin-top: 60px;
+            margin-bottom: 0;
+            font-size: 500%;
+            color: white;
+        }
+
+        p.hero__subtitle {
+            color: white;
+            margin-bottom: 7vh;
+            letter-spacing: 6px;
+        }
+
+        h1.hero__title::before {
+            content: ":";
+            height: 100%;
+            width: 100%;
+            margin-right: 20px;
+        }
+        h1.hero__title::after {
+            content: ":";
+            height: 100%;
+            width: 100%;
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        h1.hero__title {
+            margin-top: 60px;
+            margin-bottom: 0;
+            color: white;
+        }
+
+        p.hero__subtitle {
+            color: white;
+            font-size: 110%;
+            margin-bottom: 7vh;
+            letter-spacing: 2px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        a.button.button--secondary.button--lg {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+    a.button.button--secondary.button--lg {
+        box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.5);
+        margin-bottom: 5vh;
+        text-align: center;
+    }
+
+    b.navbar__title.text--truncate {
+        font-size: 120%;
+    }
+
+    .header-github-link:hover {
+        opacity: 0.6;
+    }
+
+    nav.menu {
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
+        margin-right: 20px;
+    }
+
+    div.navbar-sidebar {
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(20px);
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.7);
+        display: flexbox;
+        flex-direction: row;
+    }
+
+    a.menu__link.header-github-link {
+        margin-top: 20px;
+    }
+
+    .header-github-link:before {
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+            no-repeat;
+        content: "";
+        display: flex;
+        height: 24px;
+        width: 24px;
+    }
+}

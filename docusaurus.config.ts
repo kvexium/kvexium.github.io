@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Kvexium",
   tagline: 'dec start: str = "now";',
-  favicon: "img/kvexium_file.svg",
+  favicon: "img/kvexium_file-new.svg",
 
   // Set the production url of your site here
   url: "https://github.com",
@@ -28,7 +28,13 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "de"],
+    locales: ["en", "de", "fr", "it"],
+    localeConfigs: {
+      en: { label: "English" },
+      de: { label: "Deutsch" },
+      fr: { label: "Français" },
+      it: { label: "Italiano" },
+    },
   },
 
   presets: [
@@ -71,20 +77,32 @@ const config: Config = {
       title: "Kvexium",
       logo: {
         alt: "Kvexium Logo",
-        src: "img/kvexium.svg",
+        src: "img/kvexium-new.svg",
       },
       items: [
         {
           to: "/docs/install",
           position: "left",
+          label: "Install",
+        },
+        {
+          to: "/docs/basics/generell",
+          position: "left",
           label: "Docs",
         },
-        /* {
-          to: '/docs/', position: 'left', label: 'Docs'
-        }, */
+        {
+          to: "/docs/libs/search",
+          position: "left",
+          label: "Libraries",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
         {
           href: "https://github.com/kvexium",
-          label: "GitHub",
+          className: "header-github-link",
+          "aria-label": "GitHub",
           position: "right",
         },
       ],
@@ -96,7 +114,7 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Installation",
+              label: "Install",
               to: "/docs/install",
             },
           ],
@@ -135,9 +153,9 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Kvexium UG. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.oneDark,
-      additionalLanguages: ["kvexium"], // Füge deine benutzerdefinierte Sprache hinzu
+      theme: prismThemes.nightOwlLight,
+      darkTheme: prismThemes.dracula,
+      // additionalLanguages: ["kvexium"], // Füge deine benutzerdefinierte Sprache hinzu
     },
   } satisfies Preset.ThemeConfig,
 };

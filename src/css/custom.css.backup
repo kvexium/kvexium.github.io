@@ -1,0 +1,31 @@
+/* Stil für die neue "linux"-Admonition */
+.admonition.linux {
+    border-left: 4px solid #4caf50; /* Custom Farbe für Linux */
+    background-color: #f0f4c3; /* Hintergrundfarbe für Linux */
+}
+
+/* Stil für den Titel der Admonition */
+.admonition.linux .admonition-title {
+    color: #2e7d32; /* Titel-Farbe für Linux */
+}
+
+/* Icon für die neue Admonition */
+.admonition.linux .admonition-icon::before {
+    content: url("../../static/img/kvexium_file.svg"); /* Pfad zum neuen Icon */
+    display: inline-block;
+    width: 20px; /* Icon-Größe */
+    height: 20px;
+}
+
+.admonition.windows {
+    border-left: 4px solid #0078d7;
+    background-color: #d0e7ff;
+}
+
+.admonition.windows .admonition-title {
+    color: #005a9e;
+}
+
+.admonition.windows .admonition-icon::before {
+    content: url("../../static/img/kvexium_file.svg");
+}

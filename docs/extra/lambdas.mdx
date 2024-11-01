@@ -1,0 +1,103 @@
+---
+sidebar_position: 1
+title: Lambdas [ FNX ]
+---
+
+# Lambdas \[ FNX ]
+
+Lambdas in kvexium provide a flexible way to create and use functions. They allow for both simple and complex operations, enabling developers to write concise and readable code. This documentation will cover different types of lambdas, including simple lambdas, external lambdas, complex lambdas, and named lambdas.
+They are marked with the data type `fnx` (function expression) which has to be imported by adding:
+```kvexium
+uses kvex.fnx;
+```
+to the top of your code file.
+
+## Simple Lambdas
+
+Simple lambdas allow you to define a function inline at the point of declaration. For instance, if you want to compute the square of a number, you can do so with the following syntax:
+
+```kvexium
+dec simple: fnx<i16> := fnx(x: i8) {x * x}(4);
+```
+
+In this example:
+
+- We declare a variable result of type `fnx<i16>`, which indicates that the function will return a signed 16-bit integer (`i16`).
+- The lambda function takes an input x of type `i8`, computes the square of x, and is immediately invoked with the argument 4. Thus, the value of result will be 16.
+
+This allows for quick, one-off calculations without the need for a separate function definition.
+
+## External Lambdas
+
+External lambdas are defined outside of their invocation and can be reused throughout your code. Here’s how to define and call an external lambda:
+
+```kvexium
+dec square: fnx<i16> := fnx(x: i16) {x ** 2};
+dec result: i16 := square(4);
+```
+
+In this case:
+
+- We define a lambda named square that takes a parameter x of type `i16` and returns its square.
+- We then call this lambda with the argument 4, and the result will again be 16.
+
+This separation allows you to define reusable functions that can be called multiple times with different inputs.
+
+## Complex Lambdas
+
+Complex lambdas can handle more intricate operations and can return multiple values through structured types. Consider the following example:
+
+```kvexium
+dec differenceAndAdd: fnx<Result{diff: i16, sum: i16}> := fnx(x: i16, y: i16) {
+    if x < y {
+        Result{y-x, x+y}
+    } else {
+        Result{x-y, x+y}
+    }
+};
+```
+
+Here’s what’s happening:
+
+- We declare a lambda differenceAndAdd that takes two `i16` parameters, x and y.
+- The lambda computes the absolute difference and the sum of the two numbers, returning a Result struct that contains both values.
+
+To store the results, you can use an array:
+
+```kvexium
+dec result: i16[2];
+result[0] = differenceAndAdd(9, 7).diff;
+result[1] = differenceAndAdd(9, 7).sum;
+```
+
+In this snippet, we call differenceAndAdd with 9 and 7, and store the difference in `result[0]` and the sum in `result[1]`. This demonstrates how you can encapsulate more complex logic within a lambda and return structured data.
+
+## Named Lambdas
+
+Named lambdas are particularly useful when you want to organize your functions in a collection. This allows for dynamic function selection and easy management. Here’s how to create a dictionary of named lambdas:
+
+```kvexium
+dec namedFnx: dict[str]fnx<i16> := dict{
+    "multiply" :> fnx(x: i16, y: i16) {x * y},
+    "add" :> fnx(x: i16, y: i16) {x + y},
+    "subtract" :> fnx(x: i16, y: i16) {x - y},
+    "divide" :> fnx(x: i16, y: i16) {x / y}
+};
+```
+
+In this example:
+
+- We create a dictionary named namedFnx where each key is a string representing the name of the operation, and each value is a lambda function that performs that operation.
+- For example, the `"add"` key is associated with a lambda that takes two integers and returns their sum.
+
+To invoke one of these named lambdas, you can do the following:
+
+```kvexium
+namedFnx["add"](6, 12);
+```
+
+This line accesses the lambda associated with the key `"add"` and calls it with the arguments 6 and 12, effectively computing 6 + 12.
+
+## Conclusion
+
+Lambdas (aka `fnx`'s) in kvexium offer a powerful and versatile way to work with functions. They provide a streamlined approach to defining operations that can be simple, complex, or named. By leveraging lambdas, you can write cleaner, more modular code that is easier to read and maintain. Whether you are performing quick calculations or building more intricate logic, kvexium's lambda functionality is a valuable tool in your programming toolkit.

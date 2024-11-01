@@ -1,0 +1,14 @@
+[
+  {
+    "name": "kuhlklay/Math",
+    "title": "Math Library",
+    "tags": ["math", "calculus"],
+    "logo": "logo.png"
+  },
+  {
+    "name": "kuhlklay/Physics",
+    "title": "Physics Library",
+    "tags": ["physics", "mechanics"],
+    "logo": "logo.png"
+  }
+]
