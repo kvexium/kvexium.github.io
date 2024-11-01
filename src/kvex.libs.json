@@ -11,4 +11,10 @@
     "tags": ["math", "extended"],
     "logo": "logo.png"
   }
+{
+  "name": "kuhlklay/Graphics",
+  "title": "Graphics",
+  "tags": ["graphics", "visual"],
+  "logo": "logo.png"
+}
 ]
