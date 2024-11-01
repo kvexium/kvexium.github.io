@@ -36,21 +36,21 @@ const SearchLibs = () => {
     );
 
     return (
-        <div>
-            <h1>Suche nach Bibliotheken</h1>
+      <div className={'libs content-all'}>
+            <h1>Search for Libraries</h1>
             <input
                 type="text"
-                placeholder="Suche nach Bibliotheken oder Tags..."
+                placeholder="Search for Libraries or Tags..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ marginBottom: '20px', padding: '10px', width: '300px' }}
             />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '40%' }}>
                 {filteredLibraries.map(lib => (
                     <div key={lib.name} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', display: 'flex', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
                         <img
                             src={`https://raw.githubusercontent.com/${lib.name}/main/${lib.logo}`}
-                            alt={`${lib.title} logo`}
+                            alt={`logo couldn't load`}
                             style={{ width: '50px', marginRight: '15px', marginLeft: '10px' }}
                         />
                         <div style={{ flexGrow: 1 }}>

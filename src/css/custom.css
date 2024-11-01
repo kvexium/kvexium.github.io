@@ -458,8 +458,16 @@ h2.libs.link {
 
 p.libs.author {
     color: #bbb;
-    padding-left: 4px;
+    padding-left: 5px;
     border-left: 2px solid #bbb;
     border-radius: 2px;
     margin-bottom: 20px;
+    font-weight: 500;
+}
+
+div.libs.content-all {
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
