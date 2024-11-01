@@ -16,5 +16,11 @@
     "title": "Graphics",
     "tags": ["graphics", "visual"],
     "logo": "logo.png"
+  },
+  {
+    "name": "Kvexium/Complex",
+    "title": "Complex Numbers",
+    "tags": ["math", "extended", "complex"],
+    "logo": "logo.png"
   }
 ]

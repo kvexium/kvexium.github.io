@@ -47,16 +47,17 @@ const SearchLibs = () => {
             />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {filteredLibraries.map(lib => (
-                    <div key={lib.name} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', display: 'flex', alignItems: 'center' }}>
+                    <div key={lib.name} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', display: 'flex', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
                         <img
                             src={`https://raw.githubusercontent.com/${lib.name}/main/${lib.logo}`}
                             alt={`${lib.title} logo`}
-                            style={{ width: '50px', marginRight: '15px' }}
+                            style={{ width: '50px', marginRight: '15px', marginLeft: '10px' }}
                         />
                         <div style={{ flexGrow: 1 }}>
                             <Link to={`/docs/libs?lib=${lib.name}`}>
-                                <h2>{lib.title}</h2>
+                                <h2 className={'libs link'}>{lib.title}</h2>
                             </Link>
+                            <p className={'libs author'}>{lib.name.split('/')[0]}</p>
                             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '5px' }}>
                                 {lib.tags.map((tag, index) => (
                                     <div key={index} className='libs tag-div'>

@@ -442,9 +442,24 @@ nav.menu {
 }
 
 div.libs.tag-div {
-    background-color: #f0f0f0;
+    background-color: var(--ifm-color-primary-darkest);
+    fill-opacity: 50%;
     border-radius: 10px;
     padding: 5px 10px;
     font-size: 14px;
-    color: #333;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+h2.libs.link {
+    margin-bottom: 6px;
+}
+
+p.libs.author {
+    color: #bbb;
+    padding-left: 4px;
+    border-left: 2px solid #bbb;
+    border-radius: 2px;
+    margin-bottom: 20px;
 }
