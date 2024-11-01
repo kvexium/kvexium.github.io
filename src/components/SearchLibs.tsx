@@ -9,7 +9,7 @@ interface Library {
 }
 
 const SearchLibs = () => {
-    const [libraries, setLibraries] = useState<any[]>([]);
+    const [libraries, setLibraries] = useState<Library[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const SearchLibs = () => {
 
     const fetchLibraries = async () => {
         try {
-            const response = await fetch('https://raw.githubusercontent.com/kvexium/kvexium.github.io/tree/main/kvex.libs.json'); // Ersetze mit dem richtigen Repository-Namen
+            const response = await fetch('https://raw.githubusercontent.com/kvexium/kvexium.github.io/main/src/kvex.libs.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -31,7 +31,8 @@ const SearchLibs = () => {
     };
 
     const filteredLibraries = libraries.filter(lib =>
-        lib.title.toLowerCase().includes(searchTerm.toLowerCase())
+        lib.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lib.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
     return (
@@ -39,7 +40,7 @@ const SearchLibs = () => {
             <h1>Suche nach Bibliotheken</h1>
             <input
                 type="text"
-                placeholder="Suche nach Bibliotheken..."
+                placeholder="Suche nach Bibliotheken oder Tags..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ marginBottom: '20px', padding: '10px', width: '300px' }}
@@ -47,12 +48,22 @@ const SearchLibs = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {filteredLibraries.map(lib => (
                     <div key={lib.name} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', display: 'flex', alignItems: 'center' }}>
-                      <img src={"https://raw.githubusercontent.com/"+lib.name+"/tree/main/"+lib.logo} alt={`${lib.title} logo`} style={{ width: '50px', marginRight: '15px' }} />
+                        <img
+                            src={`https://raw.githubusercontent.com/${lib.name}/main/${lib.logo}`}
+                            alt={`${lib.title} logo`}
+                            style={{ width: '50px', marginRight: '15px' }}
+                        />
                         <div style={{ flexGrow: 1 }}>
                             <Link to={`/docs/libs?lib=${lib.name}`}>
                                 <h2>{lib.title}</h2>
                             </Link>
-                            <p>{lib.tags.join(', ')}</p>
+                            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '5px' }}>
+                                {lib.tags.map((tag, index) => (
+                                    <div key={index} className='libs tag-div'>
+                                        {tag}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}

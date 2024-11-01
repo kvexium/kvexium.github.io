@@ -1,14 +1,14 @@
 [
   {
     "name": "kuhlklay/Math",
-    "title": "Math Library",
-    "tags": ["math", "calculus"],
+    "title": "Math",
+    "tags": ["math"],
     "logo": "logo.png"
   },
   {
-    "name": "kuhlklay/Physics",
-    "title": "Physics Library",
-    "tags": ["physics", "mechanics"],
+    "name": "kuhlklay/ExtMath",
+    "title": "Extended Math",
+    "tags": ["math", "extended"],
     "logo": "logo.png"
   }
 ]
